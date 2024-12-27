@@ -14,6 +14,7 @@ public class ContactServiceImpl implements ContactService {
 		} catch (Exception e) {
 			result="Service Error";
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return result;
 	}

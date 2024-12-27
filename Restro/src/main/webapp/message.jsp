@@ -1,6 +1,6 @@
 <%
 
-String message=(String)session.getAttribute("msg");
+String message=(String) session.getAttribute("msg");
 
 
 if(message!=null)

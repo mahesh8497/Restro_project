@@ -34,8 +34,8 @@ public class ContactServlet1 extends HttpServlet {
 		
 		ContactServiceImpl contactServiceImpl=new ContactServiceImpl();
 		String result=contactServiceImpl.ContactService1(name, email, subject, message);
-		
-//		System.out.println(result);
+		  
+		System.out.println(result);
 //		//doGet(request, response);
 		
 		if(result.equals("Valid")) {

@@ -1,5 +1,8 @@
 package com.mahesh.validation;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ContactValidationImpl implements ContactValidation {
 	private String result;
 
@@ -14,9 +17,9 @@ public class ContactValidationImpl implements ContactValidation {
 			result="Invalid Name";
 		}
 		
-		else if(email_len<10 || email_len>50 || !email.contains("@") || email.endsWith(".com")) {
-			result="Invalid Email";
-		}
+	     else if (email_len < 7 || email_len > 50 || !isValidEmail(email)) {
+	            result = "Invalid Email";
+	        }
 		
 		
 		else if(subject_len<10 || subject_len>80 ) {
@@ -31,6 +34,19 @@ public class ContactValidationImpl implements ContactValidation {
 			result="Valid";
 		}
 		return result;
+	}
+
+	private boolean isValidEmail(String email) {
+String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        
+        // Compile the regex
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        // Match the email against the regex
+        Matcher matcher = pattern.matcher(email);
+        
+        // Return true if the email matches the regex
+        return matcher.matches();
 	}
 
 }

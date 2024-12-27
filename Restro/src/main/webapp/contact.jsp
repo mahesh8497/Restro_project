@@ -98,7 +98,7 @@
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Contact Us</h5>
                     <h1 class="mb-5">Contact For Any Query</h1>
-                    <h2 class="mb-5"><%@include file ="message.jsp" %></h2>
+                    <h2 style="color:red" class="mb-5"><%@include file ="message.jsp" %></h2>
                 </div>
                 <div class="row g-4">
                     <div class="col-12">
