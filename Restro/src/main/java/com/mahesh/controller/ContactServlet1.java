@@ -20,7 +20,7 @@ import com.mahesh.service.ContactServiceImpl;
 public class ContactServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
+	private String result;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session=request.getSession();
@@ -33,13 +33,16 @@ public class ContactServlet1 extends HttpServlet {
 		
 		
 		ContactServiceImpl contactServiceImpl=new ContactServiceImpl();
-		String result=contactServiceImpl.ContactService1(name, email, subject, message);
+		result=contactServiceImpl.ContactService1(name, email, subject, message);
 		  
 		System.out.println(result);
 //		//doGet(request, response);
 		
-		if(result.equals("Valid")) {
-			
+		if(result.equals("VALID")) {
+			result=contactServiceImpl.ContactService2(name, email, subject, message);
+			session.setAttribute("msg", result);
+			response.sendRedirect("contact.jsp");
+
 		}
 		else {
 			session.setAttribute("msg", result);
